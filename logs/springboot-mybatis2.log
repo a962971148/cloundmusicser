@@ -1,0 +1,12 @@
+2020-05-09 14:49:26.516  INFO 5884 --- [main] com.cloudmusic.CloudmusicApplication     : Starting CloudmusicApplication on taoye with PID 5884 (C:\Users\taoye\IdeaProjects\cloudmusic\target\classes started by taoye in C:\Users\taoye\IdeaProjects\cloudmusic)
+2020-05-09 14:49:26.520  INFO 5884 --- [main] com.cloudmusic.CloudmusicApplication     : No active profile set, falling back to default profiles: default
+2020-05-09 14:49:26.780  WARN 5884 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.cloudmusic]' package. Please check your configuration.
+2020-05-09 14:49:27.041  INFO 5884 --- [main] com.cloudmusic.CloudmusicApplication     : Started CloudmusicApplication in 0.835 seconds (JVM running for 1.444)
+2020-05-09 14:51:03.419  INFO 12400 --- [main] c.cloudmusic.CloudmusicApplicationTests  : Starting CloudmusicApplicationTests on taoye with PID 12400 (started by taoye in C:\Users\taoye\IdeaProjects\cloudmusic)
+2020-05-09 14:51:03.420  INFO 12400 --- [main] c.cloudmusic.CloudmusicApplicationTests  : No active profile set, falling back to default profiles: default
+2020-05-09 14:51:03.618  WARN 12400 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.cloudmusic]' package. Please check your configuration.
+2020-05-09 14:51:04.041  INFO 12400 --- [main] c.cloudmusic.CloudmusicApplicationTests  : Started CloudmusicApplicationTests in 0.813 seconds (JVM running for 1.562)
+2020-05-09 15:12:13.756  INFO 9420 --- [main] c.cloudmusic.CloudmusicApplicationTests  : Starting CloudmusicApplicationTests on taoye with PID 9420 (started by taoye in C:\Users\taoye\IdeaProjects\cloudmusic)
+2020-05-09 15:12:13.757  INFO 9420 --- [main] c.cloudmusic.CloudmusicApplicationTests  : No active profile set, falling back to default profiles: default
+2020-05-09 15:12:13.952  WARN 9420 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.cloudmusic]' package. Please check your configuration.
+2020-05-09 15:12:14.389  INFO 9420 --- [main] c.cloudmusic.CloudmusicApplicationTests  : Started CloudmusicApplicationTests in 0.823 seconds (JVM running for 1.51)

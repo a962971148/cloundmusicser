@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--导入属性配置 -->
+    <properties resource="generatorConfig.properties"/>
+
+    <context id="mysqlTables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+
+        <!--&lt;!&ndash; 格式化java代码 &ndash;&gt;-->
+        <!--<property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
+        <!--&lt;!&ndash; 格式化XML代码 &ndash;&gt;-->
+        <!--<property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>-->
+        <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />-->
+
+        <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <commentGenerator>
+            <property name="type" value="DEFAULT"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 这个元素用来去除指定生成的注释中是否包含生成的日期 false:表示保护 -->
+            <!-- 如果生成日期，会造成即使修改一个字段，整个实体类所有属性都会发生变化，不利于版本控制，所以设置为true -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="${driverClass}"
+                        connectionURL="${connectionURL}"
+                        userId="${username}"
+                        password="${password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="${modelPackage}" targetProject="${models}"  >
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成DAO的包名和位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="${resources}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${daoPackage}" targetProject="${dao}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="music_info" domainObjectName="MusicInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+    </context>
+</generatorConfiguration>
