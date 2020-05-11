@@ -5,6 +5,9 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="singer_id" jdbcType="BIGINT" property="singerId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="lrc" jdbcType="VARCHAR" property="lrc" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="create_user" jdbcType="BIGINT" property="createUser" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -13,8 +16,8 @@
     <result column="version" jdbcType="INTEGER" property="version" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, singer_id, create_time, create_user, update_time, update_user, is_delete, 
-    version
+    id, name, singer_id, url, pic, lrc, create_time, create_user, update_time, update_user, 
+    is_delete, version
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -28,13 +31,13 @@
   </delete>
   <insert id="insert" parameterType="com.cloudmusic.entity.MusicInfo">
     insert into music_info (id, name, singer_id, 
-      create_time, create_user, update_time, 
-      update_user, is_delete, version
-      )
+      url, pic, lrc, create_time, 
+      create_user, update_time, update_user, 
+      is_delete, version)
     values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{singerId,jdbcType=BIGINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{updateUser,jdbcType=BIGINT}, #{isDelete,jdbcType=TINYINT}, #{version,jdbcType=INTEGER}
-      )
+      #{url,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{lrc,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}, 
+      #{isDelete,jdbcType=TINYINT}, #{version,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cloudmusic.entity.MusicInfo">
     insert into music_info
@@ -47,6 +50,15 @@
       </if>
       <if test="singerId != null">
         singer_id,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="lrc != null">
+        lrc,
       </if>
       <if test="createTime != null">
         create_time,
@@ -77,6 +89,15 @@
       <if test="singerId != null">
         #{singerId,jdbcType=BIGINT},
       </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="lrc != null">
+        #{lrc,jdbcType=VARCHAR},
+      </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -106,6 +127,15 @@
       <if test="singerId != null">
         singer_id = #{singerId,jdbcType=BIGINT},
       </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="lrc != null">
+        lrc = #{lrc,jdbcType=VARCHAR},
+      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -131,6 +161,9 @@
     update music_info
     set name = #{name,jdbcType=VARCHAR},
       singer_id = #{singerId,jdbcType=BIGINT},
+      url = #{url,jdbcType=VARCHAR},
+      pic = #{pic,jdbcType=VARCHAR},
+      lrc = #{lrc,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       create_user = #{createUser,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
@@ -139,4 +172,23 @@
       version = #{version,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+  <resultMap extends="BaseResultMap" id="ListResultMap" type="com.cloudmusic.response.MusicInfoList">
+  </resultMap>
+
+  <select id="query" resultMap="ListResultMap" resultType="com.cloudmusic.response.MusicInfoList">
+    select <include refid="Base_Column_List" />
+    from music_info
+    <include refid="QUERY_WHERE" />
+  </select>
+  <sql id="QUERY_WHERE">
+    <where>
+      <if test="data.isDelete != null">
+        and is_delete = #{data.isDelete}
+      </if>
+    </where>
+  </sql>
+
+
 </mapper>

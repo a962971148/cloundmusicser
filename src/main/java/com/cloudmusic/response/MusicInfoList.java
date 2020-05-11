@@ -1,8 +1,8 @@
-package com.cloudmusic.entity;
+package com.cloudmusic.response;
 
 import java.util.Date;
 
-public class MusicInfo {
+public class MusicInfoList {
     private Long id;
 
     private String name;
@@ -49,30 +49,6 @@ public class MusicInfo {
 
     public void setSingerId(Long singerId) {
         this.singerId = singerId;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
-
-    public String getPic() {
-        return pic;
-    }
-
-    public void setPic(String pic) {
-        this.pic = pic == null ? null : pic.trim();
-    }
-
-    public String getLrc() {
-        return lrc;
-    }
-
-    public void setLrc(String lrc) {
-        this.lrc = lrc == null ? null : lrc.trim();
     }
 
     public Date getCreateTime() {
@@ -123,6 +99,30 @@ public class MusicInfo {
         this.version = version;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public String getLrc() {
+        return lrc;
+    }
+
+    public void setLrc(String lrc) {
+        this.lrc = lrc;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -132,9 +132,6 @@ public class MusicInfo {
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
         sb.append(", singerId=").append(singerId);
-        sb.append(", url=").append(url);
-        sb.append(", pic=").append(pic);
-        sb.append(", lrc=").append(lrc);
         sb.append(", createTime=").append(createTime);
         sb.append(", createUser=").append(createUser);
         sb.append(", updateTime=").append(updateTime);
